@@ -1,0 +1,19 @@
+{
+  "name": "metalback",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "catchDB": "node ./helpers/catchDB.js"
+  },
+  "author": "Stephane Delalande",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bluebird": "^3.7.2",
+    "cheerio": "^1.0.0-rc.12",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.0"
+  }
+}

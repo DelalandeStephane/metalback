@@ -1,3 +1,5 @@
+// Taken from metalarchives-api made by Amiralies 
+
 const cheerio = require('cheerio');
 const axios = require('axios');
 const GET_BAND_URL = 'https://www.metal-archives.com/bands/sieversiever/';

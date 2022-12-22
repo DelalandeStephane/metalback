@@ -18,13 +18,20 @@ mongoose
     process.exit();
   });
 
+app.use((req,res,next) => {
+  res.setHeader('Access-Control-Allow-Origin','http://localhost:4200');
+  res.setHeader('Access-Control-Allow-Methods','GET, POST');
+  res.setHeader('Access-Control-Allow-headers','x-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials',false);
+  next();
+})  
+
 app.get('/', (req, res) => {
-    res.send('Hellow you');
 })
 
 
 const bandRoutes = require("./routes/band");
-
+app.use(express.json());  
 app.use("/api/band", bandRoutes);
 
 app.listen(port,() => {

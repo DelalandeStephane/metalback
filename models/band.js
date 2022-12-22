@@ -7,7 +7,7 @@ const BandSchema = mongoose.Schema({
   band_country: { type: String, required: true },
   band_themes: { type: String, required: false },
   band_location: { type: String, reqired: false },
-  band_picture : { type: String, reqired: false },
+  band_status: { type: String, reqired: false },
 });
 
 module.exports = mongoose.model('Band', BandSchema);

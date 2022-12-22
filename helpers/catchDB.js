@@ -1,3 +1,5 @@
+// Taken from metalarchives-api made by Amiralies 
+
 const mongoose = require('mongoose');
 const Band = require('../models/band');
 const axios = require('axios');
@@ -40,18 +42,15 @@ const getPaginationBandList = async () => {
               const $ = cheerio.load(band[0]);
               const aHref = $('a').attr('href');
               const bandID = parseInt(aHref.substr(aHref.lastIndexOf('/') + 1), 10);
-              let bandPicture = ''; 
+              
               Scraper.getBand(bandID).then(result => {
-                  bandPicture = result.photoUrl
-                  if(result.photoUrl) {
-                    bandPicture = result.photoUrl
-                  }
+
                   const bandObj = {
                     band_name: $('a').text(),
                     band_id: parseInt(aHref.substr(aHref.lastIndexOf('/') + 1), 10),
                     band_genre: band[1],
                     band_country: band[2],
-                    band_picture : bandPicture
+                    band_status : result.status
                   };
                   Band.findOneAndUpdate({'band_id' : bandObj.band_id},bandObj, {upsert : true})
                   .catch(err => console.log(err));
